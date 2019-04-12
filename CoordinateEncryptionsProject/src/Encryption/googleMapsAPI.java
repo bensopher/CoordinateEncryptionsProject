@@ -1,3 +1,4 @@
+package Encryption;
 import java.io.IOException;
 
 import org.json.simple.JSONArray;
@@ -20,7 +21,13 @@ public class googleMapsAPI {
 		JSONParser parser = new JSONParser(); 
 		JSONObject bodySource = (JSONObject) parser.parse(Source.text());
 		JSONArray resultsElement = (JSONArray) bodySource.get("results");
-		JSONObject toObj = (JSONObject) resultsElement.get(0);
+		JSONObject toObj = null;
+		try{
+			toObj = (JSONObject) resultsElement.get(0);
+		}catch (IndexOutOfBoundsException e){
+			System.out.println("Incorrect address");
+			return null;
+		}
 		JSONObject geometryElement = (JSONObject) toObj.get("geometry");
 		JSONObject locationElement = (JSONObject) geometryElement.get("location");
 		cordins[0] = (Double) locationElement.get("lat");

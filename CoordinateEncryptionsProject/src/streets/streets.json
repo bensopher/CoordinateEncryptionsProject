@@ -1,0 +1,68 @@
+{
+  
+	"A":["abbey","acacia","acadia","acton","adair","adam","addison","alabama","alameda","alberta"]
+  
+	"B":["bacon","baden","badger","baker","balance","balboa","balmy","banks","bank","bannock"]
+  
+	"C":["cabrillo","caledonia","calgary","california","cambridge","camp","canby","capp","carl","carmelita"]
+  
+	"D":["detroit","de","wolf","diamond","diana","dickinson","digby","divisadero","division","dock","dodge"]
+  
+	"E":["elk","ellert","elliot","ellis","ellsworth","elmira","elm","elsie","elwood","emerson"]
+  
+	"F":["francisco","francis","franconia","franklin","frank","norris","frederick","freelon","fremont","fresno","friedell"]
+  
+	"G":["gates","gaven","geary","gennessee","georgia","germania","getz","gibb","gilbert","gilroy"]
+  
+	"H":["hahn","haight","hale","hallam","halleck","hamilton","hamlin","hampshire","hancock","hangah"]
+  
+	"I":["illinois","indiana","india","industrial","ingalls","iowa","irving","irwin","isis","islais"]
+  
+	"J":["jackson","jansen","jauss","java","jefferson","jennings","jersey","jessie","east","jewett","john","maher","john"]
+  
+	"K":["kalmanovitz","kansas","kate","kearny","keith","kent","kern","king","kingston","kinzey"]
+  
+	"L":["lafayette","laguna","laidley","lake","merced","hill","lake","merced","hill","lake","lamartine","landers","lane","langton"]
+  
+	"M":["mabini","macedonia","madera","madison","madrid","magnolia","mahan","main","manchester","manseau"]
+  
+	"N":["naples","napoleon","natick","natoma","naylor","nebraska","nellie","neptune","nevada","newburg"]
+  
+	"O":["oak","oakwood","octavia","ofarrell","old","mason","oliver","olive","olmstead","ord","ordway"]
+  
+	"P":["pacheco","page","panama","paris","park","parsons","pasadena","patterson","patton","paulding"]
+  
+	"Q":["quane","quincy","quintara","quint"]
+  
+	"R":["raleigh","ralston","randall","randolph","rankin","rausch","rawles","rayburn","reddy"]
+  
+	"S":["sanches","sanchez","san","miguel","sansome","santa","marina","santiago","santos","sargent","saturn","saul"]
+  
+	"T":["texas","theresa","thrift","tingley","todd","toland","tonquin","touchard","townsend","trainor"]
+  
+	"U":["ulloa","union","university","upton","utah"]
+  
+	"V":["vara","varennes","vega","venus","vermont","verna","vernon","vesta","vicente","vicksburg"]
+  
+	"W":["walbridge","wallen","waller","walnut","walter","waltham","wanda","ward","ware","washburn"]
+  
+	"X":["X"]
+  
+	"Y":["yale","yorba","york","young","yukon"]
+  
+	"Z":["zanowitz","zoe"]
+
+	".":["something"]
+	
+	",":["something"]
+	
+	":":["something"]
+	
+	"!":["something"]
+	
+	"?":["something"]
+	
+	"-":["something"]
+	
+	" ":["tony"]
+}
