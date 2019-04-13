@@ -45,8 +45,9 @@ public class EncryptMessage {
 //				System.out.println(message.charAt(i));
 				resultsElement = (JSONArray) bodySource.get(String.valueOf(message.charAt(i)).toUpperCase());
 				//r.nextInt((max - min) + 1) + min;
-				String address = (String)resultsElement.get(r.nextInt((resultsElement.size()-1 - 0) + 1) + 0)+",USA";
-//				System.out.println(address);
+//				String address = (String)resultsElement.get(r.nextInt((resultsElement.size()-1 - 0) + 1) + 0);
+				String address = (String)resultsElement.get(0);
+				System.out.println(address);
 				temp = googleMapsAPI.getCordinates(address);
 //				System.out.println(temp);
 				if(temp == null){

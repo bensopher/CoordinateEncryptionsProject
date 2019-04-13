@@ -51,9 +51,16 @@ public class googleMapsAPI {
 		}
 		JSONArray address_componentsElement = (JSONArray) toObj.get("address_components");
 		System.out.println(address_componentsElement);
-		JSONObject thirdElement = (JSONObject) address_componentsElement.get(2);
+		JSONObject thirdElement = null;
+//		try{
+//			thirdElement = (JSONObject) address_componentsElement.get(3);
+//		}catch(IndexOutOfBoundsException e){
+//			thirdElement = (JSONObject) address_componentsElement.get(0);
+//		}
+		thirdElement = (JSONObject) address_componentsElement.get(2);
 		String name = (String)thirdElement.get("long_name");
-		
+//		String name = (String)toObj.get("formatted_address");
+		System.out.println(name);
 //		cordins[0] = (Double) locationElement.get("lat");
 //		cordins[1] = (Double) locationElement.get("lng");
 		return String.valueOf(name.charAt(0)).toLowerCase();
