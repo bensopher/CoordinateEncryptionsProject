@@ -1,6 +1,5 @@
 package graphics;
 
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -17,12 +16,12 @@ import javax.swing.JTextField;
 
 import org.json.simple.parser.ParseException;
 
-import Encryption.EncryptMessage;
+import Encryption.Decrypt;
 
-public class EncryptingPanel extends JPanel{
-	private static JTextArea theMessage;
+public class DecryptingPanel extends JPanel {
+	private static JTextArea thecode;
 	private static JTextField keyField;
-	public EncryptingPanel(){
+	public DecryptingPanel(){
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
@@ -32,15 +31,15 @@ public class EncryptingPanel extends JPanel{
 //		c.weighty = 10/2;
 		c.gridx = 0;
 		c.gridy = 0;
-		JLabel messageInserting = new JLabel("Insert Your Massage:");
-		add(messageInserting,c);
-		theMessage = new JTextArea();
-		JScrollPane messageScrolling = new JScrollPane(theMessage);
+		JLabel codeInserting = new JLabel("Insert Your Code:");
+		add(codeInserting,c);
+		thecode = new JTextArea();
+		JScrollPane codeScrolling = new JScrollPane(thecode);
 		c.gridy = 1;
 		c.weightx = 1;
 		c.weighty = 1;
 		c.insets = new Insets(0, 40, 0, 40);
-		add(messageScrolling,c);
+		add(codeScrolling,c);
 		
 		
 		JLabel key = new JLabel("Key:");
@@ -57,16 +56,13 @@ public class EncryptingPanel extends JPanel{
 		add(keyField,c);
 		
 		c.gridx = 0;
-		JButton Submit = new JButton("Encrypt");
+		JButton Submit = new JButton("Decrypt");
 		Submit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				EncryptMessage massege = new EncryptMessage(keyField.getText(),theMessage.getText());
 				try {
-					OutputEncryptionPanel.clearOutput();
-					massege.Encrypting();
-					clearOutput();
-				} catch (IOException | ParseException e1) {
+					Decrypt.Decryption(keyField.getText(), thecode.getText());
+				} catch (ParseException | IOException e1) {
 					e1.printStackTrace();
 				}
 			}
@@ -79,5 +75,5 @@ public class EncryptingPanel extends JPanel{
 		setOpaque(false);
 //		setPreferredSize(new Dimension(MainPanel.getBackgroundSize().width/2,MainPanel.getBackgroundSize().height));
 	}
-	public static void clearOutput(){theMessage.setText("");keyField.setText("");}
+	public static void clearOutput(){thecode.setText("");keyField.setText("");}
 }

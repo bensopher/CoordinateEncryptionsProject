@@ -1,12 +1,12 @@
 package Encryption;
-import graphics.OutputPanel;
-
+import graphics.OutputEncryptionPanel;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.ListResourceBundle;
+import java.util.HashMap;
 import java.util.Random;
 
 import org.json.simple.JSONArray;
@@ -16,19 +16,18 @@ import org.json.simple.parser.ParseException;
 
 
 public class EncryptMessage {
-	private ArrayList<long[]> listOfHashedCoordinates = new ArrayList<long[]>();
+	private String key;
+	private ArrayList<Double[]> listOfHashedCoordinates = new ArrayList<Double[]>();
+//	private HashMap<Integer, Double> coordinatesBank = new HashMap<Integer, Double>();
 	private String message;
-	public EncryptMessage(String message){
-		if(!setMessage(message)){
-			message = "The message was empty.";
-		}
-	}
-	public boolean setMessage(String message){
-		if(message == null) return false;
+	public EncryptMessage(String key,String message){
+		this.key = key;
 		this.message = message;
-		return true;
 	}
 	public String getMessage(){return this.message;}
+	
+	
+//	@SuppressWarnings("unchecked")
 	public void Encrypting() throws FileNotFoundException, IOException, ParseException{
 		Random r = new Random();
 		JSONParser parser = new JSONParser(); 
@@ -38,31 +37,66 @@ public class EncryptMessage {
 		path = path.replace("\\", "\\\\").replace("CoordinateEncryptionsProject\\\\streets", "CoordinateEncryptionsProject\\\\src\\\\streets");
 		JSONObject bodySource = (JSONObject) parser.parse(new FileReader(path));
 //		JSONObject bodySource = (JSONObject) parser.parse(new FileReader("C:\\Users\\tony\\git\\CoordinateEncryptionsProject\\CoordinateEncryptionsProject\\src\\streets\\streets.json"));
-		System.out.println(bodySource);
+//		System.out.println(bodySource);
 		Double[] temp = new Double[2];
 		for(int i=0;i<this.getMessage().length();i++){
-			if(message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
-				System.out.println(message.charAt(i));
+//			System.out.println(this.getMessage().length());
+//			if(message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
+//				System.out.println(message.charAt(i));
 				resultsElement = (JSONArray) bodySource.get(String.valueOf(message.charAt(i)).toUpperCase());
 				//r.nextInt((max - min) + 1) + min;
-				int rand = r.nextInt((resultsElement.size()-1 - 0) + 1) + 0;
-				String street = (String)resultsElement.get(rand);
-				System.out.println(street);
-				temp = googleMapsAPI.getCordinates(street+",USA");
+				String address = (String)resultsElement.get(r.nextInt((resultsElement.size()-1 - 0) + 1) + 0)+",USA";
+//				System.out.println(address);
+				temp = googleMapsAPI.getCordinates(address);
+//				System.out.println(temp);
 				if(temp == null){
 					i--;
 					continue;
 				}
 				System.out.println("["+temp[0]+","+temp[1]+"]");
-				listOfHashedCoordinates.add(new long[]{temp[0].hashCode(),temp[1].hashCode()});
-			}else if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z'){
-				
-			}else{
-				
-			}
+//				coordinatesBank.put(temp[0].hashCode(), temp[0]);
+//				coordinatesBank.put(temp[1].hashCode(), temp[1]);
+//				System.out.println("wtf");
+				listOfHashedCoordinates.add(new Double[]{kayHash(temp[0]),kayHash(temp[1])});
+//				System.out.println(listOfHashedCoordinates.get(listOfHashedCoordinates.size()-1)[0]+" "+listOfHashedCoordinates.get(listOfHashedCoordinates.size()-1)[1]);
+//				System.out.println(listOfHashedCoordinates.get(listOfHashedCoordinates.size()-1)[0]+" "+listOfHashedCoordinates.get(listOfHashedCoordinates.size()-1)[1]);
+//			}else if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z'){
+//				
+//			}else{
+//				
+//			}
 		}
-		System.out.println(listOfHashedCoordinates.size() == this.getMessage().length());
-		for(int i=0;i<listOfHashedCoordinates.size();i++)
-			OutputPanel.setOutput(listOfHashedCoordinates.get(i)[0]+" "+listOfHashedCoordinates.get(i)[1]+"\n");
+//		System.out.println(listOfHashedCoordinates.size() == this.getMessage().length());
+//		OutputPanel.clearOutput();
+		for(int i=0;i<listOfHashedCoordinates.size();i++){
+			if((i+1)%4 == 0)
+				OutputEncryptionPanel.setOutput(listOfHashedCoordinates.get(i)[0]+" "+listOfHashedCoordinates.get(i)[1]+"\n");
+			else
+				OutputEncryptionPanel.setOutput(listOfHashedCoordinates.get(i)[0]+" "+listOfHashedCoordinates.get(i)[1]+" ");
+			}
+		
+//		JSONObject jsonOutput = new JSONObject();
+//		HashMap<String,HashMap<Integer, Double>> withKey = new HashMap<String,HashMap<Integer, Double>>();
+//		withKey.put(key, coordinatesBank);
+//		jsonOutput.putAll(withKey);
+//		//Write JSON file
+//		File keysFile=new File("keys/keys.json");
+//		String keysPath = keysFile.getAbsolutePath();
+//		keysPath = keysPath.replace("\\", "\\\\").replace("CoordinateEncryptionsProject\\\\keys", "CoordinateEncryptionsProject\\\\src\\\\keys");
+//		try{
+//			FileReader fileNotEmpty = new FileReader(keysPath);
+//			JSONObject keysBody = (JSONObject) parser.parse(fileNotEmpty);
+//			keysBody.put(key, coordinatesBank);
+//			
+//		}catch(Exception FileNotFoundException){
+//			FileWriter file = new FileWriter(keysPath);
+//			file.write(jsonOutput.toJSONString());
+//	        file.flush();
+//		}
+	}
+	public Double kayHash(Double cord){
+		Double hashedKey = Double.valueOf(key.hashCode());
+		hashedKey = hashedKey/1000000000;
+		return cord+hashedKey;
 	}
 }
