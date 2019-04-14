@@ -7,6 +7,7 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.Random;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -60,9 +61,28 @@ public class temp {
 //		System.out.println("tony".hashCode());
 //		System.out.println("dani".hashCode());
 //		System.out.println(39.3432432523434387456795867454);
-		String adress = "Zwolle, Netherlands";
-		System.out.println(googleMapsAPI.getCordinates(adress)[0]+","+googleMapsAPI.getCordinates(adress)[1]);
-		System.out.println(googleMapsAPI.getChar(googleMapsAPI.getCordinates(adress)));
+		while(true){
+			Random rand = new Random();
+			int exp;
+			double r1 = Double.valueOf(rand.nextInt((900000000 - (-90000)) + 1) + (-90000)),r2 = Double.valueOf(rand.nextInt((900000000 - (-90000)) + 1) + (-90000));
+			int r1Len = (int)(Math.log10(r1)+1),r2Len = (int)(Math.log10(r2)+1);
+			r1 = r1/Math.pow(10,r1Len-2);
+			r2 = r2/Math.pow(10,r2Len-2);
+//			double r1 = (-90.0) + (90.0 - (-90.0)) * rand.nextDouble(),r2 = (-90.0) + (90.0 - (-90.0)) * rand.nextDouble();
+//			System.out.println(r1+","+r2);
+			String check = googleMapsAPI.getChar(new Double[]{r1,r2});
+//			System.out.println(check);
+			if(check != null){
+				if(check.equals("u")){
+//					System.out.println(r1+","+r2);
+					String address = googleMapsAPI.getAddress(new Double[]{r1,r2});
+					if(!address.contains("Unnamed Road"))
+						System.out.println(address);
+				}
+			}
+		}
+//		System.out.println(googleMapsAPI.getCordinates(adress)[0]+","+googleMapsAPI.getCordinates(adress)[1]);
+//		System.out.println(googleMapsAPI.getChar(googleMapsAPI.getCordinates(adress)));
 	}
 
 }

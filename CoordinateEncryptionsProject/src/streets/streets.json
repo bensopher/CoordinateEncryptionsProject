@@ -1,56 +1,56 @@
 {
   
-	"A":["Ann Arbor, MI, USA"]
+	"A":["Addis Ababa, Ethiopia","Abu Dhabi,United Arab Emirates","Acapulco, Guerrero, Mexico","Arjona, Spain","Afmadow, Somalia","Agost, Spain","Ahpyauk, Myanmar","Ajijic, Jalisco, Mexico"]
   
-	"B":["Bratislava, Slovakia"]
+	"B":["Baflo, Netherlands","Buckingham, UK","Benidorm, Spain","Belfast, UK","Bharuch, Gujarat, India","Bilbao, Spain","Barcelona, Spain","Binyamina"]
   
-	"C":["Csorna, Hungary"]
+	"C":["Cagliari, Italy","Clondalkin, Dublin, Ireland","Cahul, Moldova","Calama, Chile","Cambridge, UK","Carpi, Province of Modena, Italy","Catania, Italy","Chur, Switzerland"]
   
-	"D":["Denver, CO, USA"]
+	"D":["Dachau, Germany","Davos, Switzerland","Dalston, London, UK","Deventer, Netherlands","Dabgram, Siliguri, West Bengal, India","Dankov, Lipetsk Oblast, Russia","Dyatkovo, Bryansk Oblast, Russia","Davlekanovo, Republic of Bashkortostan, Russia","De Soto, KS, USA","Dej, Romania"]
   
-	"E":["Ellicott City, MD, USA"]
+	"E":["Eastbourne, UK","Ebikon, Switzerland","Edison, NJ, USA","Egham, UK","Eisenach, Germany","El Banco, Magdalena, Colombia","Elburg, Netherlands","Ermelo, Netherlands"]
   
-	"F":["Frisco, CO, USA"]
+	"F":["Faenza, Province of Ravenna, Italy","Failsworth, UK","Falkirk, UK","Farnborough, UK","Faro, Portugal","Fastiv, Kyiv Oblast, Ukraine","Feldkirch, Austria","Fleetwood, UK"]
   
-	"G":["Grand Lake, CO, USA"]
+	"G":["Gainesville, FL, USA","Galdakao, Spain","Gand, Belgium","Garbsen, Germany","Garland, TX, USA","Geldrop, Netherlands","Giv'atayim, Israel","Gosport, UK"]
   
-	"H":["Harrisburg, PA, USA"]
+	"H":["Hadera, Israel","Haderslev, Denmark","Hagen, Germany","Haguenau, France","Haifa, Israel","Hal, Belgium","Hamar, Norway","Hanam, Gyeonggi-do, South Korea"]
   
-	"I":["Ionia, MI, USA"]
+	"I":["Igrane, Croatia","Igualada, Igualada, Spain","Il'skij, Krasnodar Krai, Russia","Indianapolis, IN, USA","Interlaken Ost, Interlaken, Switzerland","Inzago, Metropolitan City of Milan, Italy","Irkutsk, Russia","Irun, Spain","Iskitim, Novosibirsk Oblast, Russia","Istra, Moscow Oblast, Russia"]
   
-	"J":["Jonestown, PA, USA"]
+	"J":["Jacksonville, NC, USA","Jaworzno, Poland","Jefferson City, MO, USA","Jena, Germany","Jerusalem, Israel","Jilin, China","Jimma, Ethiopia","Jati Padang, South Jakarta City, Jakarta, Indonesia"]
   
-	"K":["Kansas City, MO, USA"]
+	"K":["Eskeldi District, Kazakhstan","Alamudun, Kyrgyzstan","Unnamed Road, Varshavka, Chelyabinskaya oblast', Russia, 457372","Burabay District, Kazakhstan","Unnamed Road, Tolbazy, Respublika Bashkortostan, Russia, 452246","Mastuj, Chitral, Khyber Pakhtunkhwa, Pakistan","Khanty-Mansi Autonomous Okrug, Russia, 628651","Unnamed Road, Killa Abdullah, Balochistan, Pakistan","Bayganin District, Kazakhstan","Krasnoyarsk Krai, Russia, 647501","Ile District, Kazakhstan","Itara, Kenya","Magzhan Zhumabaev, Kazakhstan","Ulan District, 070000, Kazakhstan"]
   
-	"L":["Lenexa, KS, USA"]
+	"L":["La Spezia, SP, Italy","La Tebaida, Quindio, Colombia","La Teste-de-Buch, France","Lahad Datu, Sabah, Malaysia","Lalmonirhat Sadar Upazila, Bangladesh","Langenfeld, Germany","Langenthal, Switzerland","Lanzhou, Gansu, China","Las Rozas de Madrid, Spain","Lake Macquarie, New South Wales, Australia"]
   
-	"M":["Mariahilf, Vienna, Austria"]
+	"M":["Maarssen, Netherlands","Macclesfield, UK","Machiques, Zulia, Venezuela","Macon, GA, USA","Madingou, Republic of the Congo","Madrid, Spain","Mainz, Germany","Malahide, County Dublin, Ireland"]
   
-	"N":["Naschmarkt, Vienna, Austria"]
+	"N":["Nachodka, Primorsky Krai, Russia","Nailsea, UK","Nagaa Hammadi, Madinet Najaa Hammadi, Nagaa Hammadi, Egypt","Nanaimo, BC, Canada","Nanortalik, Greenland","Nantes, France","Nanticoke, PA, USA","Naperville, IL, USA","Naro-Fominsk, Moscow Oblast, Russia","Neuwied, Germany"]
   
-	"O":["Ottawa, ON, Canada"]
+	"O":["Oamaru, New Zealand","Oaxaca, Mexico","Ochaby, Poland","Odder, Denmark","Ofaqim, Israel","Oftringen, Switzerland","Oldham, UK","Orange, CA, USA"]
   
-	"P":["Petawawa, ON, Canada"]
+	"P":["Pacora, Panama","Padova, Italy","Paignton, UK","Pailin Province, Cambodia","Palencia, Spain","Palermo, Italy","Palma de Mallorca, Spain","Paradise, MI, United States"]
   
-	"Q":["Qrendi, Malta"]
+	"Q":["Qacha's Nek, Lesotho","Qasr, Al Jahra, Kuwait","Qazvin, Qazvin Province, Iran","Qingdao, Shandong, China","Quart de Poblet, Spain","Quartu Sant'Elena, Province of Cagliari, Italy","Quatre Bornes, Mauritius","Queanbeyan NSW, Australia","Quebradillas, Puerto Rico","Queenstown, New Zealand"]
   
-	"R":["Rockville, MD, USA"]
+	"R":["Rabak, Bogor, West Java, Indonesia","Rabat, Morocco","Rabaul, Papua New Guinea","Radcliffe, UK","Radomsko, Poland","Raduzhny, Vladimir Oblast, Russia","Rae Bareli, Uttar Pradesh, India","Ramenskoje, Moscow Oblast, Russia","Rancho Cucamonga, CA, USA","Ra's al-Khaymah - United Arab Emirates"]
   
-	"S":["San Francisco, CA, USA"]
+	"S":["Saint-Brieuc, France","Saint-Malo, FranceSaint-Trond, Belgium","Saint-Trond, Belgium","Salamanca, Spain","Sale, England, UK","Salinas, CA, USA","Segovia, Spain","Shenyang, Liaoning, China"]
   
-	"T":["Temple Hills, MD, USA"]
+	"T":["Tajga, Kemerovo Oblast, Russia","Takhat Bhai, Pakistan","Talavera de la Reina, Spain","Talagante, Chile","Talca, Chile","Talisay City, Cebu, Philippines","Taman, Krasnodar Krai, Russia","Tangshan, Hebei, China","Tanguieta, Benin","Tanta, Tanta Qism 2, Tanta, Egypt"]
   
-	"U":["Uwchland, PA, USA"]
+	"U":["Uccle, Belgium"]
   
-	"V":["Vienna, Austria"]
+	"V":["Valence, France","Versailles, France"]
   
-	"W":["Washington D.C., DC, USA"]
+	"W":["Waiblingen, Germany"]
   
-	"X":["Xanten, Germany"]
+	"X":["Budapest, XX. kerület, Hungary","Xinjiang, China","Xiamen, Fujian, China","Xochimilco, CDMX, Mexico","Xanten, Germany"]
   
-	"Y":["York, PA, USA"]
+	"Y":["Yssingeaux, France","Yzeron, France"]
   
-	"Z":["Zschopau, Germany"]
+	"Z":["Zamfara, Rukudawa, Nigeria","Zamfara, Unnamed Road, Nigeria","Zanzan, Unnamed Road, Côte d'Ivoire","Ziguinchor, Unnamed Road, Senegal"]
 
 	".":["Kappara, San Gwann, Malta"]
 	
