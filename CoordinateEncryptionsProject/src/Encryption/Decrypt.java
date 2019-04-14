@@ -14,7 +14,7 @@ public class Decrypt {
 		String message = "";
 		ArrayList<Double> doubles = new ArrayList<Double>();
 		Double hashedKey = Double.valueOf(key.hashCode());
-		hashedKey = hashedKey/1000000000;
+//		hashedKey = hashedKey/1000000000;
 		
 		SpecialSymbols.put(String.valueOf(googleMapsAPI.getCordinates("Kappara, San Gwann, Malta")[0])+","+String.valueOf(googleMapsAPI.getCordinates("Kappara, San Gwann, Malta")[1]), ".");
 		SpecialSymbols.put(String.valueOf(googleMapsAPI.getCordinates("Tony USA, Sai Mai Road, Sai Mai, Bangkok, Thailand")[0])+","+String.valueOf(googleMapsAPI.getCordinates("Tony USA, Sai Mai Road, Sai Mai, Bangkok, Thailand")[1]), ",");
@@ -24,7 +24,6 @@ public class Decrypt {
 		SpecialSymbols.put(String.valueOf(googleMapsAPI.getCordinates("Sarajevo, Bosnia and Herzegovina")[0])+","+String.valueOf(googleMapsAPI.getCordinates("Sarajevo, Bosnia and Herzegovina")[1]), "-");
 		SpecialSymbols.put(String.valueOf(googleMapsAPI.getCordinates("SPACE Office Centre Sarajevo, Pijačna, Sarajevo, Bosnia and Herzegovina")[0])+","+String.valueOf(googleMapsAPI.getCordinates("SPACE Office Centre Sarajevo, Pijačna, Sarajevo, Bosnia and Herzegovina")[1]), " ");
 
-		
 		code = code.replace("\n", " ");
 		while(code.endsWith(" "))
 			code = code.replaceAll(" $","");

@@ -56,6 +56,13 @@ public class temp {
 		
 		
 //		System.out.println(googleMapsAPI.getCordinates("41.894366696999995,-87.804930803")[0]);
+		
+//		System.out.println("tony".hashCode());
+//		System.out.println("dani".hashCode());
+//		System.out.println(39.3432432523434387456795867454);
+		String adress = "Zwolle, Netherlands";
+		System.out.println(googleMapsAPI.getCordinates(adress)[0]+","+googleMapsAPI.getCordinates(adress)[1]);
+		System.out.println(googleMapsAPI.getChar(googleMapsAPI.getCordinates(adress)));
 	}
 
 }

@@ -97,7 +97,7 @@ public class EncryptMessage {
 	}
 	public Double kayHash(Double cord){
 		Double hashedKey = Double.valueOf(key.hashCode());
-		hashedKey = hashedKey/1000000000;
+//		hashedKey = hashedKey/1000000000;
 		return cord+hashedKey;
 	}
 }
