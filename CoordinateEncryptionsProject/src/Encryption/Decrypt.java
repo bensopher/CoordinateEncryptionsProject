@@ -51,21 +51,24 @@ public class Decrypt {
 				j = i+1;
 			}
 		}
-		for(int i=0;i<subs.size();i++)
-			System.out.print(subs.get(i)+" ");
+//		for(int i=0;i<subs.size();i++)
+//			System.out.print(subs.get(i)+" ");
 		for(int i=0;i<subs.size();i = i+2){
 			if(subs.get(i).contains("x")){
 				subs.set(i,subs.get(i).replace("x", "."));
 				subs.set(i+1,subs.get(i+1).replace("x", "."));
 				double[] doubTemp = new double[]{Double.valueOf(subs.get(i)),Double.valueOf(subs.get(i+1))};
 				double[] afterPoint = new double[]{Math.round(((Math.abs(doubTemp[0])-Math.floor(Math.abs(doubTemp[0])))*Math.signum(doubTemp[0]))* 1e9) / 1e9 , Math.round(((Math.abs(doubTemp[1])-Math.floor(Math.abs(doubTemp[1])))*Math.signum(doubTemp[1])) * 1e9) / 1e9};
-				System.out.println("doubTemp: "+doubTemp[0]+" "+doubTemp[1]);
-				System.out.println("afterPoint: "+afterPoint[0]+" "+afterPoint[1]);
+//				System.out.println("doubTemp: "+doubTemp[0]+" "+doubTemp[1]);
+//				System.out.println("afterPoint: "+afterPoint[0]+" "+afterPoint[1]);
 				doubTemp[0] = (((int)doubTemp[0]) - hashedKey) + afterPoint[0];
 				doubTemp[1] = (((int)doubTemp[1]) - hashedKey) + afterPoint[1];
 				if(doubTemp[0] > 180.0){
 					int intTemp = (int)(doubTemp[0] / 10);
-					message = message+(char)intTemp;
+					if(intTemp == 30)
+						message = message+'\n';
+					else
+						message = message+(char)intTemp;
 					continue;
 				}
 				else{
@@ -86,25 +89,27 @@ public class Decrypt {
 				subs.set(i+1,subs.get(i+1).replace("z", "."));
 				double[] doubTemp = new double[]{Double.valueOf(subs.get(i)),Double.valueOf(subs.get(i+1))};
 				double[] afterPoint = new double[]{Math.round(((Math.abs(doubTemp[0])-Math.floor(Math.abs(doubTemp[0])))*Math.signum(doubTemp[0]))* 1e9) / 1e9 , Math.round(((Math.abs(doubTemp[1])-Math.floor(Math.abs(doubTemp[1])))*Math.signum(doubTemp[1])) * 1e9) / 1e9};
-				System.out.println("doubTemp: "+doubTemp[0]+" "+doubTemp[1]);
-				System.out.println("afterPoint: "+afterPoint[0]+" "+afterPoint[1]);
+//				System.out.println("doubTemp: "+doubTemp[0]+" "+doubTemp[1]);
+//				System.out.println("afterPoint: "+afterPoint[0]+" "+afterPoint[1]);
 				doubTemp[0] = (((int)doubTemp[0]) - hashedKey) + afterPoint[0];
 				doubTemp[1] = (((int)doubTemp[1]) - hashedKey) + afterPoint[1];
 				if(doubTemp[0] > 180.0){
 					int intTemp = (int)(doubTemp[0] / 10);
-					message = message+(char)intTemp;
-					continue;
+					if(intTemp == 30)
+						message = message+'\n';
+					else
+						message = message+(char)intTemp;
 				}
 				else{
 //					doubTemp[0] = (((int)doubTemp[0]) - hashedKey) + afterPoint[0];
 //					doubTemp[1] = (((int)doubTemp[1]) - hashedKey) + afterPoint[1];
-					String chr = googleMapsAPI.getChar(new Double[]{doubTemp[0],doubTemp[1]}).toUpperCase();
+					String chr = googleMapsAPI.getChar(new Double[]{doubTemp[0],doubTemp[1]});
 					if(chr == null){
 						Random r = new Random();
 						message = message+(char)(r.nextInt(60) + ' ');
 					}
 					else
-						message = message+chr;
+						message = message+chr.toUpperCase();
 				}
 			}
 		}

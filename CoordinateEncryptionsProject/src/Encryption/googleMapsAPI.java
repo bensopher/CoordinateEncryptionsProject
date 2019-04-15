@@ -25,15 +25,15 @@ public class googleMapsAPI {
 		try{
 			toObj = (JSONObject) resultsElement.get(0);
 		}catch (IndexOutOfBoundsException e){
-			System.out.println("Incorrect address");
+//			System.out.println("Incorrect address");
 			return null;
 		}
 		JSONObject geometryElement = (JSONObject) toObj.get("geometry");
 		JSONObject locationElement = (JSONObject) geometryElement.get("location");
 		cordins[0] = (Double) locationElement.get("lat");
 		cordins[1] = (Double) locationElement.get("lng");
-		System.out.println("["+cordins[0]+","+cordins[1]+"]");
-		System.out.println(address);
+//		System.out.println("["+cordins[0]+","+cordins[1]+"]");
+//		System.out.println(address);
 		return cordins;
 	}
 	public static String getChar(Double[] Cord)throws ParseException, IOException{

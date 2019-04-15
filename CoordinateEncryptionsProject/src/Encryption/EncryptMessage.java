@@ -49,7 +49,7 @@ public class EncryptMessage {
 //		System.out.println(bodySource);
 		Double[] temp = new Double[2];
 		for(int i=0;i<this.getMessage().length();i++){
-//			System.out.println(this.getMessage().length());
+//			System.out.println(this.getMessage());
 //				System.out.println(message.charAt(i));
 //				resultsElement = (JSONArray) bodySource.get(String.valueOf(message.charAt(i)).toUpperCase());
 				//r.nextInt((max - min) + 1) + min;
@@ -66,7 +66,7 @@ public class EncryptMessage {
 //				coordinatesBank.put(temp[0].hashCode(), temp[0]);
 //				coordinatesBank.put(temp[1].hashCode(), temp[1]);
 //				System.out.println("wtf");
-			
+//			System.out.println(message.charAt(i) == '\n');
 				if(message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
 					resultsElement = (JSONArray) bodySource.get(String.valueOf(message.charAt(i)).toUpperCase());
 					String address = (String)resultsElement.get(r.nextInt((resultsElement.size()-1 - 0) + 1) + 0);
@@ -91,6 +91,9 @@ public class EncryptMessage {
 //					System.out.println("["+temp[0]+","+temp[1]+"]");
 					Double[] doubTemp = keyHash(temp);
 					OutputEncryptionPanel.setOutput(String.valueOf(doubTemp[0]).replace(".", "z")+" "+String.valueOf(doubTemp[1]).replace(".", "z"));
+				}else if(message.charAt(i) == '\n'){
+					Double[] doubTemp = keyHash(new Double[]{(double)300+(Math.round((r.nextDouble()*0.999999) * 1e7) / 1e7),(double)300+(Math.round((r.nextDouble()*0.999999) * 1e7) / 1e7)});
+					OutputEncryptionPanel.setOutput(String.valueOf(doubTemp[0]).replace(".", "x")+" "+String.valueOf(doubTemp[1]).replace(".", "x"));
 				}else{
 //					System.out.println("work");
 //					OutputEncryptionPanel.setOutput(keyHash(SpecialSymbols.get(message.charAt(i))));
@@ -99,7 +102,6 @@ public class EncryptMessage {
 					//Math.round(afterPoint * 1e9) / 1e9;
 //					double rand = (r.nextDouble()*0.999999);
 //					System.out.println((double)('.')*10+rand);
-					
 					Double[] doubTemp = keyHash(new Double[]{(double)(message.charAt(i))*10+(Math.round((r.nextDouble()*0.999999) * 1e7) / 1e7),(double)(message.charAt(i))*10+(Math.round((r.nextDouble()*0.999999) * 1e7) / 1e7)});
 //					System.out.println(((double)(message.charAt(i))*10+(Math.round((r.nextDouble()*0.999999) * 1e7) / 1e7))+" "+((double)(message.charAt(i))*10+(Math.round((r.nextDouble()*0.999999) * 1e7) / 1e7)));
 //					Double[] doubTemp = keyHash(SpecialSymbols.get(message.charAt(i)));

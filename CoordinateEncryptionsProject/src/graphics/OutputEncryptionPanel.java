@@ -25,6 +25,7 @@ public class OutputEncryptionPanel extends JPanel {
 		add(messageInserting,c);
 		theOutput = new JTextArea();
 		theOutput.setEditable(false);
+//		theOutput.setLineWrap(true);
 		JScrollPane outputScrolling = new JScrollPane(theOutput);
 		c.gridy = 1;
 		c.weightx = 1;

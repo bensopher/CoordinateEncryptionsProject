@@ -8,7 +8,9 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -34,7 +36,9 @@ public class DecryptingPanel extends JPanel {
 		JLabel codeInserting = new JLabel("Insert Your Code:");
 		add(codeInserting,c);
 		thecode = new JTextArea();
+//		thecode.setLineWrap(true);
 		JScrollPane codeScrolling = new JScrollPane(thecode);
+		
 		c.gridy = 1;
 		c.weightx = 1;
 		c.weighty = 1;
@@ -60,10 +64,17 @@ public class DecryptingPanel extends JPanel {
 		Submit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					Decrypt.Decryption(keyField.getText(), thecode.getText());
-				} catch (ParseException | IOException e1) {
-					e1.printStackTrace();
+				if(thecode.getText().equals("")){
+					JOptionPane.showMessageDialog(new JFrame(), "The message is empty.", "Dialog",JOptionPane.ERROR_MESSAGE);
+				}
+				else if(keyField.getText().equals("")){
+					JOptionPane.showMessageDialog(new JFrame(), "The key field should be filled.", "Dialog",JOptionPane.ERROR_MESSAGE);
+				}else{
+					try {
+						Decrypt.Decryption(keyField.getText(), thecode.getText());
+					} catch (ParseException | IOException e1) {
+						e1.printStackTrace();
+					}
 				}
 			}
 		});
