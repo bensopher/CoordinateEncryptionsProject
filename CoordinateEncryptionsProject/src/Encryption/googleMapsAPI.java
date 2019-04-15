@@ -48,7 +48,7 @@ public class googleMapsAPI {
 		try{
 			toObj = (JSONObject) resultsElement.get(0);
 		}catch (IndexOutOfBoundsException e){
-			System.out.println("Incorrect Coordinates");
+//			System.out.println("Incorrect Coordinates");
 			return null;
 		}
 		JSONArray address_componentsElement = (JSONArray) toObj.get("address_components");
@@ -68,7 +68,7 @@ public class googleMapsAPI {
 		}
 //		String name = (String)thirdElement.get("long_name");
 //		String name = (String)toObj.get("formatted_address");
-		System.out.println(name);
+//		System.out.println(name);
 //		cordins[0] = (Double) locationElement.get("lat");
 //		cordins[1] = (Double) locationElement.get("lng");
 		if(name != null)

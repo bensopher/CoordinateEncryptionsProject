@@ -18,8 +18,8 @@ import org.json.simple.parser.ParseException;
 
 public class EncryptMessage {
 	private String key;
-	private ArrayList<String> listOfHashedCoordinates = new ArrayList<String>();
-	private HashMap<Character, Double[]> SpecialSymbols = new HashMap<Character, Double[]>();
+//	private ArrayList<String> listOfHashedCoordinates = new ArrayList<String>();
+//	private HashMap<Character, Double[]> SpecialSymbols = new HashMap<Character, Double[]>();
 //	private HashMap<Integer, Double> coordinatesBank = new HashMap<Integer, Double>();
 	private String message;
 	public EncryptMessage(String key,String message){
@@ -31,13 +31,13 @@ public class EncryptMessage {
 	
 //	@SuppressWarnings("unchecked")
 	public void Encrypting() throws FileNotFoundException, IOException, ParseException{
-		SpecialSymbols.put('.',new Double[]{31.6687885,34.5742523});
-		SpecialSymbols.put(',',new Double[]{31.804381,34.655314});
-		SpecialSymbols.put(':',new Double[]{32.0852999,34.78176759999999});
-		SpecialSymbols.put('!',new Double[]{31.768319,35.21371});
-		SpecialSymbols.put('?',new Double[]{31.423196,34.595254});
-		SpecialSymbols.put('-',new Double[]{32.162413,34.844675});
-		SpecialSymbols.put(' ',new Double[]{32.095838,34.952177});
+//		SpecialSymbols.put('.',new Double[]{31.6687885,34.5742523});
+//		SpecialSymbols.put(',',new Double[]{31.804381,34.655314});
+//		SpecialSymbols.put(':',new Double[]{32.0852999,34.78176759999999});
+//		SpecialSymbols.put('!',new Double[]{31.768319,35.21371});
+//		SpecialSymbols.put('?',new Double[]{31.423196,34.595254});
+//		SpecialSymbols.put('-',new Double[]{32.162413,34.844675});
+//		SpecialSymbols.put(' ',new Double[]{32.095838,34.952177});
 		Random r = new Random();
 		JSONParser parser = new JSONParser(); 
 		JSONArray resultsElement;
@@ -95,8 +95,15 @@ public class EncryptMessage {
 //					System.out.println("work");
 //					OutputEncryptionPanel.setOutput(keyHash(SpecialSymbols.get(message.charAt(i))));
 //					System.out.println("["+SpecialSymbols.get(message.charAt(i))[0]+","+SpecialSymbols.get(message.charAt(i))[1]+"]");
-					Double[] doubTemp = keyHash(SpecialSymbols.get(message.charAt(i)));
-					OutputEncryptionPanel.setOutput(String.valueOf(doubTemp[0]).replace(".", "z")+" "+String.valueOf(doubTemp[1]).replace(".", "z"));
+					//r.nextInt((resultsElement.size()-1 - 0) + 1) + 0
+					//Math.round(afterPoint * 1e9) / 1e9;
+//					double rand = (r.nextDouble()*0.999999);
+//					System.out.println((double)('.')*10+rand);
+					
+					Double[] doubTemp = keyHash(new Double[]{(double)(message.charAt(i))*10+(Math.round((r.nextDouble()*0.999999) * 1e7) / 1e7),(double)(message.charAt(i))*10+(Math.round((r.nextDouble()*0.999999) * 1e7) / 1e7)});
+//					System.out.println(((double)(message.charAt(i))*10+(Math.round((r.nextDouble()*0.999999) * 1e7) / 1e7))+" "+((double)(message.charAt(i))*10+(Math.round((r.nextDouble()*0.999999) * 1e7) / 1e7)));
+//					Double[] doubTemp = keyHash(SpecialSymbols.get(message.charAt(i)));
+					OutputEncryptionPanel.setOutput(String.valueOf(doubTemp[0]).replace(".", "x")+" "+String.valueOf(doubTemp[1]).replace(".", "x"));
 				}
 				if((i+1)%4 == 0)
 					OutputEncryptionPanel.setOutput("\n");

@@ -48,7 +48,7 @@ public class temp {
 		
 		
 //		String key = "Tony1234";
-//		Double hash = Double.valueOf(key.hashCode());
+//		System.out.println("tony1".hashCode());
 //		hash = hash/1000000000;
 //		System.out.println(hash);
 //		Double[] cord = googleMapsAPI.getCordinates("Anatalia");
@@ -99,7 +99,14 @@ public class temp {
 //		System.out.println((612622.6329223)-(long)(612622.6329223));
 //		System.out.println((-612622.6329223)%10);
 //		System.out.println(-612622.6329223-(-612674));
-		System.out.println(-103550.813288-103591.79125);
+//		System.out.println(-103550.813288-103591.79125);
+//		Random r = new Random();
+		//r.nextInt((resultsElement.size()-1 - 0) + 1) + 0
+		//Math.round(afterPoint * 1e9) / 1e9;
+//		double rand = (r.nextDouble()*0.999999);
+//		System.out.println((double)('.')*10+rand);
+//		System.out.println((double)('.')*10+(Math.round(rand * 1e7) / 1e7));
+//		System.out.println(460.232323 % 10);
 	}
 
 }
