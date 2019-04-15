@@ -22,7 +22,7 @@ public class Decrypt {
 		SpecialSymbols.put("31.6687885 34.5742523",".");
 		SpecialSymbols.put("31.804381 34.655314",",");
 		SpecialSymbols.put("32.0852999 34.78176759999999",":");
-		SpecialSymbols.put("31.768318999999998 35.21371","!");
+		SpecialSymbols.put("31.768319 35.21371","!");
 		SpecialSymbols.put("31.423196 34.595254","?");
 		SpecialSymbols.put("32.162413 34.844675","-");
 		SpecialSymbols.put("32.095838 34.952177"," ");
@@ -69,14 +69,21 @@ public class Decrypt {
 		
 		for(int i=0;i<doubles.size();i++){
 			double temp = doubles.get(i);
-//			System.out.println("before removing the key: "+temp);
-//			System.out.println("The Key: "+hashedKey);
+			System.out.println("before removing the key: "+temp);
+			System.out.println("The Key: "+hashedKey);
+			double afterPoint = Math.abs(doubles.get(i))-Math.floor(Math.abs(doubles.get(i)));
+			afterPoint = afterPoint*Math.signum(temp);
 			temp = (int)temp;
 			temp = temp - hashedKey;
-			double afterPoint = Math.abs(doubles.get(i))-Math.floor(Math.abs(doubles.get(i)));
+			System.out.println("after raises the hashKey: "+temp);
+//			double afterPoint = Math.abs(doubles.get(i))-Math.floor(Math.abs(doubles.get(i)));
+			System.out.println("after point: "+afterPoint);
 			afterPoint = Math.round(afterPoint * 1e9) / 1e9;
-//			System.out.println(afterPoint+temp);
-			doubles.set(i, (Math.signum(temp))*afterPoint+temp);
+			System.out.println(afterPoint+temp);
+//			System.out.println("With the signum:"+((Math.signum(temp))*afterPoint+temp));
+//			if((int)temp == 0)
+//				doubles.set(i, (Math.signum(temp))*afterPoint+temp);
+			doubles.set(i, afterPoint+temp);
 			}
 //		for(int i=0;i<doubles.size();i++)
 //			System.out.println(doubles.get(i));
@@ -85,10 +92,11 @@ public class Decrypt {
 			if(SpecialSymbols.containsKey(coordins))
 				message = message+SpecialSymbols.get(coordins);
 			else{
+				System.out.println("before callig getChar:"+doubles.get(i)+" "+doubles.get(i+1));
 				String chr = googleMapsAPI.getChar(new Double[]{doubles.get(i),doubles.get(i+1)});
 				if(chr == null){
 					Random r = new Random();
-					message = message+(char)(r.nextInt(26) + 'a');
+					message = message+(char)(r.nextInt(60) + ' ');
 				}
 				else
 					message = message+chr;

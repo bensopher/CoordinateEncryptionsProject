@@ -146,16 +146,18 @@ public class EncryptMessage {
 			double temp = newCord[i];
 //			System.out.println("before removing the key: "+temp);
 //			System.out.println("The Key: "+hashedKey);
+			double afterPoint = Math.abs(newCord[i])-Math.floor(Math.abs(newCord[i]));
+			afterPoint = afterPoint*Math.signum(temp);
 			temp = (int)temp;
 //			System.out.println("set x.0: "+temp);
 			temp = temp + hashedKey;
 //			System.out.println("sum with the key: "+temp);
-			double afterPoint = Math.abs(newCord[i])-Math.floor(Math.abs(newCord[i]));
+//			double afterPoint = Math.abs(newCord[i])-Math.floor(Math.abs(newCord[i]));
 //			System.out.println("after point: "+afterPoint);
 			afterPoint = Math.round(afterPoint * 1e9) / 1e9;
 //			System.out.println("after point + 1e9: "+afterPoint);
 //			System.out.println((Math.signum(temp))*afterPoint+temp);
-			newCord[i] = (Math.signum(temp))*afterPoint+temp;
+			newCord[i] = afterPoint+temp;
 		}
 //		System.out.println(hashedKey);
 //		double doubKey = hashedKey/(double)Math.pow(10, ((int)Math.log10(Math.abs(hashedKey))+1)/2);
