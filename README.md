@@ -1,6 +1,6 @@
 # Coordinate Encryptions - Asymmetric cryptography
 
-<img src="https://image.prntscr.com/image/0Q7iEsxMR3u95lyikoXvEA.png" title="FVCproductions" alt="FVCproductions" height="50" width="50">
+<img src="https://image.prntscr.com/image/0Q7iEsxMR3u95lyikoXvEA.png" title="FVCproductions" alt="FVCproductions" height="205" width="329">
 
 Coordinate Encryptions - Asymmetric cryptography.
 
