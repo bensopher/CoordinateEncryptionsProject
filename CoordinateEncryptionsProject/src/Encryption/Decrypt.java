@@ -15,9 +15,7 @@ public class Decrypt {
 		ArrayList<String> subs = new ArrayList<String>();
 		String message = "";
 //		ArrayList<Double> doubles = new ArrayList<Double>();
-		int hashedKey = key.hashCode();
-		int abs_hash=Math.abs(hashedKey);
-		int log_dec=(int)Math.log10(abs_hash);
+		int hashedKey = key.hashCode(),abs_hash=Math.abs(hashedKey),log_dec=(int)Math.log10(abs_hash);
 		if(log_dec> 7)
 			hashedKey = hashedKey/1000;
 //		double doubKey = hashedKey/(double)Math.pow(10, ((int)Math.log10(Math.abs(hashedKey))+1)/2);
