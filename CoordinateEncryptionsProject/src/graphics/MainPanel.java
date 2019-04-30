@@ -17,30 +17,21 @@ import javax.swing.JTabbedPane;
 
 public class MainPanel extends JPanel {
 	private BufferedImage background = loadImage();
+	private JComponent[] panels = new JComponent[2];
+	private String[] panelTitles = {"Encryption","Decryption"};
 	private static Dimension backgroundSize;
 	public MainPanel(){
 		super(new GridLayout(1, 1));
 		JTabbedPane tabbedPane = new JTabbedPane();
-		JComponent encryptionPanel = EncryptionPanel();
-		tabbedPane.addTab("Encryption", encryptionPanel);
-        tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
-        JComponent decryptionPanel = DecryptionPanel();
-		tabbedPane.addTab("Decryption", decryptionPanel);
-        tabbedPane.setMnemonicAt(1, KeyEvent.VK_1);
+		for(int i=0;i<panels.length;i++){
+			panels[i] = panel(panelTitles[i]);
+			tabbedPane.addTab(panelTitles[i], panels[i]);
+	        tabbedPane.setMnemonicAt(i, KeyEvent.VK_1);
+		}
         add(tabbedPane);
         tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
-//		setLayout(new GridBagLayout());
-//		GridBagConstraints c = new GridBagConstraints();//for configure the buttons
-//		c.gridwidth = GridBagConstraints.REMAINDER;
-//		c.fill = GridBagConstraints.BOTH;
-//		c.weightx = 1;
-//		c.weighty = 4;
-//		add(new EncryptingPanel(),c);
-//		c.weighty = 6;
-//		c.gridy = 1;
-//		add(new OutputPanel(),c);
 	}
-	public JComponent EncryptionPanel() {
+	public JComponent panel(String whichOne) {
         JPanel panel = new JPanel(false);
         panel.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();//for configure the buttons
@@ -48,28 +39,20 @@ public class MainPanel extends JPanel {
 		c.fill = GridBagConstraints.BOTH;
 		c.weightx = 1;
 		c.weighty = 4;
-		panel.add(new EncryptingPanel(),c);
-		c.weighty = 6;
-		c.gridy = 1;
-		panel.add(new OutputEncryptionPanel(),c);
+		if(whichOne.equals("Encryption")){
+			panel.add(new EncryptingPanel(),c);
+			c.weighty = 6;
+			c.gridy = 1;
+			panel.add(new OutputEncryptionPanel(),c);
+		}
+		else{
+			panel.add(new DecryptingPanel(),c);
+			c.weighty = 6;
+			c.gridy = 1;
+			panel.add(new OutputDecryptionPanel(),c);
+		}
         return panel;
     }
-	public JComponent DecryptionPanel() {
-        JPanel panel = new JPanel(false);
-        panel.setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();//for configure the buttons
-		c.gridwidth = GridBagConstraints.REMAINDER;
-		c.fill = GridBagConstraints.BOTH;
-		c.weightx = 1;
-		c.weighty = 4;
-		panel.add(new DecryptingPanel(),c);
-		c.weighty = 6;
-		c.gridy = 1;
-		panel.add(new OutputDecryptionPanel(),c);
-        return panel;
-    }
-//	private void setBackground(BufferedImage background){this.background = background;}
-//	private BufferedImage getBackgroundImage(){return this.background;}
 	private BufferedImage loadImage(){
         URL imagePath = getClass().getResource("/Images/background.jpg");
         BufferedImage result = null;
